@@ -1,13 +1,30 @@
 version: "3.3"
 services:
+    database:
+      restart: always
+      image: postgres:12 # use latest official postgres version
+      volumes:
+        - database-data:/var/lib/paw01project/postgresql/data/
+      environment:
+        - POSTGRES_USER=test
+        - POSTGRES_PASSWORD=passw0rd
+        - POSTGRES_DB=apidb
+      ports:
+        - "5333:5433"
+
     projecto:
         container_name: 'Projecto_PAW'
         restart: unless-stopped
         build:
             context: '.'
             dockerfile: 'Dockerfile'
+        depends_on:
+            - database
         volumes:
             - './:/usr/src/app'
             - /usr/src/app/node_modules
         ports:
             - '8080:8080'
+
+volumes:
+  database-data: # named volumes can be managed easier using docker-compose
