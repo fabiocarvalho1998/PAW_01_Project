@@ -14,6 +14,8 @@ ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY package.json /usr/src/app/package.json
 RUN npm install
 RUN npm install -g @vue/cli
+RUN npm install -g vue-browser-geolocation
+RUN npm install -g vue2-google-maps
 
 # start app
 CMD ["npm", "run", "serve"]
