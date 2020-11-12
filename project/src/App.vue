@@ -2,16 +2,19 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
    <Login />
+   <!-- <Map /> Só para testar enquanto não há rotas-->
   </div>
 </template>
 
 <script>
-import Login from './pages/Login.vue'
+import Login from './frontend/pages/Login.vue'
+//import Map from './frontend/pages/Map.vue' //Só para testar enquanto não há rotas
 
 export default {
   name: 'App',
   components: {
     Login
+    //Map //Só para testar enquanto não há rotas
   }
 }
 </script>
