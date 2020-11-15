@@ -1,20 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-   <Login />
+    <!--<img alt="Vue logo" src="./assets/logo.png">-->
+   <!--<Login />-->
    <!-- <Map /> Só para testar enquanto não há rotas-->
+   <LocalControl />
   </div>
 </template>
 
 <script>
-import Login from './frontend/pages/Login.vue'
+//import Login from './frontend/pages/Login.vue'
 //import Map from './frontend/pages/Map.vue' //Só para testar enquanto não há rotas
+import LocalControl from '@/frontend/pages/LocalControl.vue'
 
 export default {
   name: 'App',
   components: {
-    Login
+    //Login
     //Map //Só para testar enquanto não há rotas
+    LocalControl
   }
 }
 </script>

@@ -12,8 +12,10 @@
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-browser-geolocation": "^1.8.0",
-    "vue2-google-maps": "^0.10.7"
-  },
+    "vue2-google-maps": "^0.10.7",
+    "bootstrap-vue": "^2.19.0",
+    "bootstrap": "^4.5.3"
+  }, 
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
