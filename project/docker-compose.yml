@@ -46,7 +46,7 @@ services:
         depends_on:
             - database
         environment: 
-            WAIT_HOSTS: postgres:5433
+            WAIT_HOSTS: postgres:5432
         networks:
             - teste
         links:
