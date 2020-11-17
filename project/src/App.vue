@@ -1,22 +1,22 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-   <Login />
-   <!--<ListZones />-->
+   <!--<Login />-->
+   <ListZones />
    <!-- <Map /> Só para testar enquanto não há rotas-->
   </div>
 </template>
 
 <script>
-import Login from './frontend/pages/Login.vue'
+//import Login from './frontend/pages/Login.vue'
 //import Map from './frontend/pages/Map.vue' //Só para testar enquanto não há rotas
-//import ListZones from './frontend/pages/ListZones.vue'
+import ListZones from './frontend/pages/ListZones.vue'
 
 export default {
   name: 'App',
   components: {
-    Login
-    //ListZones
+    //Login
+    ListZones
     //Map //Só para testar enquanto não há rotas
   }
 }
