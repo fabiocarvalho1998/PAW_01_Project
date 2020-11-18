@@ -4,6 +4,7 @@ RUN go get -u github.com/lib/pq
 RUN go get gorm.io/gorm
 RUN go get github.com/go-gorm/postgres
 RUN go get -u github.com/gin-gonic/gin
+RUN go get github.com/gin-contrib/cors
 
 EXPOSE 8081
 
