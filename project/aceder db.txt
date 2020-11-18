@@ -1,2 +1,2 @@
-docker exec -it idContainer bash
+docker exec -it 63e7f165f3ea bash
 psql apidb -U test
