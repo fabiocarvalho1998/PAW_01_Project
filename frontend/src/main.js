@@ -3,13 +3,19 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import VueGeolocation from 'vue-browser-geolocation'
 import * as VueGoogleMaps from 'vue2-google-maps'
+import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 import App from './App.vue'
 import Login from './pages/Login.vue'
 import Map from './pages/Map.vue'
+import ListZones from './pages/ListZones.vue'
+
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 Vue.use(VueResource)
+Vue.use(BootstrapVue)
 Vue.use(VueGeolocation)
 Vue.use(VueGoogleMaps,  {
   load: {
@@ -30,6 +36,11 @@ const router = new VueRouter({
       path: '/map',
       name: 'map',
       component: Map
+    },
+    {
+      path: '/zones',
+      name: 'zones',
+      component: ListZones
     }
   ]
 })
