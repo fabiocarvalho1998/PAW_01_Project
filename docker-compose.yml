@@ -1,0 +1,67 @@
+version: '3.3'
+
+services:
+  database:
+    container_name: 'Projecto_PAW_database'
+    restart: always
+    image: postgres:12
+    volumes:
+      - database-data:/var/lib/paw01project/data/
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=passw0rd
+      - POSTGRES_DB=apidb
+    ports:
+      - "5432:5432"
+    networks: 
+      - backend_network
+
+  backend:
+    container_name: 'Projecto_PAW_backend'
+    restart: unless-stopped
+    build:
+      context: './backend'
+      dockerfile: 'Dockerfile'
+    volumes:
+        - ./backend:/go/src/projetoapi
+    ports:
+        - '8081:8081'
+    depends_on:
+        - database
+    environment: 
+        - WAIT_HOSTS=database:5432
+        - CHOKIDAR_USEPOLLING=true
+    networks:
+        - backend_network
+        - frontend_network
+    links:
+        - database
+      
+  frontend:
+    container_name: 'Projecto_PAW_frontend'
+    restart: unless-stopped
+    depends_on:
+        - backend
+    build:
+        context: './frontend'
+        dockerfile: 'Dockerfile'
+    volumes:
+        - ./frontend:/app
+        - /app/node_modules
+    ports:
+        - '8080:8080'
+    environment: 
+        - CHOKIDAR_USEPOLLING=true
+    networks:
+        - frontend_network
+
+  
+
+volumes:
+  database-data:
+
+networks:
+    backend_network:
+        driver: bridge
+    frontend_network:
+        driver: bridge
